@@ -1,10 +1,19 @@
 <template>
   <q-page padding>
     <!-- content -->
-    <div class="result q-pa-md q-gutter-sm">
-      <q-avatar size="12vw" color="primary" text-color="white" class="q-mr-md">73</q-avatar>
-      <q-avatar size="12vw" color="red" text-color="white" class="q-mr-md">73</q-avatar>
-      <q-avatar size="12vw" color="yellow" text-color="white" class="q-mr-md">103</q-avatar>
+    <div class="result q-pb-md q-gutter-sm">
+      <div class="points">
+        <q-avatar size="10vw" color="brown-3" text-color="white" class="q-mx-md">73</q-avatar><br>
+        <p class="pointsText">Silver Coin</p>
+      </div>
+      <div class="points">
+        <q-avatar size="10vw" color="yellow-9" text-color="white" class="q-mx-md">73</q-avatar><br>
+        <p class="pointsText">Gold Coin</p>
+      </div>
+      <div class="points">
+        <q-avatar size="10vw" color="red-10" text-color="white" class="q-mx-md">103</q-avatar><br>
+        <p class="pointsText">Platinam Coin</p>
+      </div>
     </div>
     <!-- <div class="result q-pa-md q-gutter-sm">
       <p size="15vw" class="q-mr-lg">73</p>
@@ -39,7 +48,7 @@
             />
 
             <q-input v-model="comment" label="COMMENT"/>
-            <q-input v-model="bounty" label="BOUNTY"/>
+            <q-input type="number" v-model="bounty" label="BOUNTY"/>
             <q-btn unelevated class="q-mt-lg" color="primary" label="GIVE BOUNTY"/>
           </q-page>
         </q-page-container>
@@ -136,6 +145,17 @@ export default {
 .result {
   margin: 0 auto;
   text-align: center;
+
+}
+.points{
+
+display: inline-block;
+  text-align: center
+}
+.pointsText{
+  font-size: 20px;
+  text-align: center;
+  display: inline
 }
 .ruels {
   font-size: 20px;

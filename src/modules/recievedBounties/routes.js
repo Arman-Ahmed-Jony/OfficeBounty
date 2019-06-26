@@ -4,9 +4,9 @@ export default [
     component: () => import('layouts/DefaultLayout'),
     children: [
       {
-        path: 'dashboard',
-        component: () => import('./pages/DashboardIndex'),
-        name: 'Dashboard',
+        path: 'recievedBounties',
+        component: () => import('./pages/RecievedBountiesIndex'),
+        name: 'RecievedBounties',
         meta: {
           noAuthRequired: true
         }

@@ -27,6 +27,8 @@ module.exports = function (ctx) {
 
       components: [
         'QSelect',
+        'QPageSticky',
+        'QBadge',
         'QLayout',
         'QHeader',
         'QDrawer',

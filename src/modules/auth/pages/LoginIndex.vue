@@ -47,6 +47,7 @@
           color="primary"
           :loading="loading"
           type="submit"
+          @click.prevent="$router.push('/dashboard')"
         />
       </q-card-actions>
       </q-form>
