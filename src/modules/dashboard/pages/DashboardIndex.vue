@@ -3,15 +3,18 @@
     <!-- content -->
     <div class="result q-pb-md q-gutter-sm">
       <div class="points">
-        <q-avatar size="10vw" color="brown-3" text-color="white" class="q-mx-md">73</q-avatar><br>
+        <q-avatar size="10vw" color="brown-3" text-color="white" class="q-mx-md">73</q-avatar>
+        <br>
         <p class="pointsText">Silver Coin</p>
       </div>
       <div class="points">
-        <q-avatar size="10vw" color="yellow-9" text-color="white" class="q-mx-md">73</q-avatar><br>
+        <q-avatar size="10vw" color="yellow-9" text-color="white" class="q-mx-md">73</q-avatar>
+        <br>
         <p class="pointsText">Gold Coin</p>
       </div>
       <div class="points">
-        <q-avatar size="10vw" color="red-10" text-color="white" class="q-mx-md">103</q-avatar><br>
+        <q-avatar size="10vw" color="red-10" text-color="white" class="q-mx-md">103</q-avatar>
+        <br>
         <p class="pointsText">Platinam Coin</p>
       </div>
     </div>
@@ -29,31 +32,23 @@
         >Check bounty rules.</span>
       </p>
       <div class="row justify-center">
-        <q-btn unelevated color="primary" @click="giveBountyDialog = true" label="GIVE BOUNTY"/>
+        <q-btn
+          unelevated
+          color="primary"
+          @click.native="giveBountyDialog = true"
+          label="GIVE BOUNTY"
+        />
       </div>
     </div>
-
     <q-dialog v-model="giveBountyDialog">
       <q-layout view="lhh LpR lff" container style="height: 500px" class="bg-grey-3">
         <q-page-container>
-          <q-page class="q-pa-md">
-            <q-select v-model="teamMember" :options="teamMemberOptions" label="TEAM MEMBER"/>
-
-            <q-select v-model="project" :options="projectOptions" label="PROJECT(Optional)"/>
-
-            <q-select
-              v-model="catagory"
-              :options="catagoryOptions"
-              label="SPECIFY CATEGORY (Optional)"
-            />
-
-            <q-input v-model="comment" label="COMMENT"/>
-            <q-input type="number" v-model="bounty" label="BOUNTY"/>
-            <q-btn unelevated class="q-mt-lg" color="primary" label="GIVE BOUNTY"/>
-          </q-page>
+          <!-- give bounties pop up -->
+          <giveBountyPopUp />
         </q-page-container>
       </q-layout>
     </q-dialog>
+
     <q-dialog v-model="rulesDialog">
       <q-layout view="lhh LpR lff" container style="height: 500px" class="bg-grey-3">
         <q-page-container>
@@ -101,9 +96,12 @@
 </style>
 
 <script>
+import giveBountyPopUp from './giveBountyPopUp.vue'
 export default {
   name: 'Dashboard',
-
+  components: {
+    giveBountyPopUp
+  },
   data () {
     return {
       teamMember: '',
@@ -145,17 +143,16 @@ export default {
 .result {
   margin: 0 auto;
   text-align: center;
-
 }
-.points{
-
-display: inline-block;
-  text-align: center
-}
-.pointsText{
-  font-size: 20px;
+.points {
+  display: inline-block;
   text-align: center;
-  display: inline
+}
+.pointsText {
+  font-size: calc(12px + 1vw);
+  /* font-size: 2.5vw; */
+  text-align: center;
+  display: inline;
 }
 .ruels {
   font-size: 20px;
