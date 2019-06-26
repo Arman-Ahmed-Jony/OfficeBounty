@@ -1,9 +1,9 @@
 <template>
   <q-page padding class="pad">
     <q-list  padding separator>
-      <q-item v-for="item in 10" :key="item" >
+      <q-item v-for="item in 10" :key="item" clickable v-ripple >
         <q-item-section>
-          <q-item-label class="text-h6">Sabeena</q-item-label>
+          <q-item-label class="text-h6">Reza</q-item-label>
           <q-item-label class="text-body6" lines="10">
             tk.Very kind in sharing his cab drive with me
             today. Saved me 200 tk.Very kind in sharing his cab drive with me
@@ -41,7 +41,7 @@
 <script>
 import giveBountyPopUp from '../../dashboard/pages/giveBountyPopUp'
 export default {
-  name: 'Give Bounties',
+  name: 'GiveBounties',
   components: {
     giveBountyPopUp
   },
