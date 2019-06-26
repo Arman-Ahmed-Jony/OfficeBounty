@@ -1,31 +1,37 @@
 <template>
-  <q-page padding class="pad">
-    <q-list v-for="item in 5" :key="item" bordered padding>
-      <q-item>
+ <q-page padding class="pad">
+    <q-list  padding separator>
+      <q-item v-for="item in 10" :key="item" clickable v-ripple >
         <q-item-section>
-          <q-item-label>Shakil</q-item-label>
-          <q-item-label
-            caption
-            lines="10"
-          >Very kind in sharing his cab drive with me
-today. Saved me 200 tk.Very kind in sharing his cab drive with me
-today. Saved me 200 tk.Very kind in sharing his cab drive with me
-today. Saved me 200 tk.Very kind in sharing his cab drive with me
-today. Saved me 200 tk.</q-item-label>
-          <q-item-section side top>
-            <q-badge label="Teamwork"/>
+          <q-item-label class="text-h6">Sabeena</q-item-label>
+          <q-item-label class="text-body6" lines="10">
+            tk.Very kind in sharing his cab drive with me
+            today. Saved me 200 tk.Very kind in sharing his cab drive with me
+            today. Saved me 200 tk.
+          </q-item-label>
+          <q-item-section side top class="q-pt-md">
+            <q-badge label="General" color="red"/>
           </q-item-section>
         </q-item-section>
 
         <q-item-section side top>
-          <q-item-label caption>20</q-item-label>
+          <q-item-label class="text-h5">20</q-item-label>
           <q-item-label caption>Silver</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
-    <q-page-sticky position="bottom-right" :offset="[18, 18]">
+    <q-page-sticky @click.native="giveBountyDialog=true" position="bottom-right" :offset="[18, 18]">
       <q-btn fab icon="add" color="accent"/>
     </q-page-sticky>
+
+    <q-dialog v-model="giveBountyDialog">
+      <q-layout view="lhh LpR lff" container style="height: 500px" class="bg-grey-3">
+        <q-page-container>
+          <!-- give bounties pop up -->
+          <giveBountyPopUp/>
+        </q-page-container>
+      </q-layout>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -33,9 +39,12 @@ today. Saved me 200 tk.</q-item-label>
 </style>
 
 <script>
+import giveBountyPopUp from '../../dashboard/pages/giveBountyPopUp'
 export default {
-  name: 'Dashboard',
-
+  name: 'ReievedBounties',
+  components: {
+    giveBountyPopUp
+  },
   data () {
     return {
       teamMember: '',
@@ -44,7 +53,7 @@ export default {
       comment: '',
       bounty: '',
       giveBountyDialog: false,
-      rulesDialog: false,
+
       teamMemberOptions: [
         'Radin',
         'Shakil',
@@ -66,7 +75,7 @@ export default {
   },
 
   created () {
-    this.$store.dispatch('common/setPageTitle', 'Given Bounties ')
+    this.$store.dispatch('common/setPageTitle', 'Recieved Bounties ')
   },
 
   methods: {}
