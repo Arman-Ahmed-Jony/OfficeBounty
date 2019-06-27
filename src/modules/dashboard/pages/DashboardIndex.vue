@@ -40,6 +40,7 @@
         />
       </div>
     </div>
+
     <q-dialog v-model="giveBountyDialog">
       <q-layout view="lhh LpR lff" container style="height: 500px" class="bg-grey-3">
         <q-page-container>
